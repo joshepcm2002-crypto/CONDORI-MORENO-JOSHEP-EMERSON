@@ -26,7 +26,7 @@ Para cambiar cualquier información tuya o de la universidad, abre con tu editor
 ### Diccionario de Variables de Perfil
 *   **`studentName`**: Tu nombre legal completo para la tarjeta formal (Ej. `"Condori Moreno Joshep Emerson"`).
 *   **`shortName`**: Tu nombre de pila o apodo corto para los saludos (Ej. `"Joshep"`).
-*   **`studentImage`**: La ruta a tu foto. (Ej. `"img/mifoto.jpg"`). Solo mete la foto en la carpeta `img` y escribe aquí su nombre.
+*   **`studentImage`**: La ruta a tu foto. (Ej. `"img/foto.jpg"`). Solo mete la foto en la carpeta `img` y escribe aquí su nombre.
 *   **`studentCode`** y **`studentEmail`**: Tu código universitario y correo.
 *   **`aboutMe`**: **[NUEVO]** Aquí redactas o editas totalmente tu biografía (la sección "Sobre Mí").
 *   **`career`** y **`shortCareer`**: Tu carrera formal (Ej. `"Ingeniería de Sistemas y Computación"`) y la abreviación para el muro de bienvenida (`"Ingeniería"`).
