@@ -1,4 +1,4 @@
-# 🎓 Portafolio Académico Inteligente (SPA)
+# Portafolio Académico Inteligente (SPA)
 
 Bienvenido al ecosistema de tu Portafolio Universitario. Este proyecto ha sido reescrito desde cero utilizando una arquitectura **Bento-Box** moderna y reactiva. 
 
@@ -13,7 +13,7 @@ La filosofía principal de este repositorio es el **Control Centralizado**. No n
 - **`perfil.html`**: Presentación personal tipo carnet (CV), con logo y descripción institucional.
 - **`semana.html`**: **[NO DUPLICAR]** Plantilla maestra paramétrica. Esta única página se encarga de renderizar la semana 1, la semana 16 o cualquier otra de forma dinámica dependiendo del enlace (`semana.html#3`). 
 - **`visor.html`**: Navegador PDF de Pantalla Exclusiva con una Isla Dinámica para una lectura purista y un gestor nativo de descargas para evitar redirecciones molestas.
-- **`data.js`**: 🧠 **EL CEREBRO DEL SISTEMA**. Tu central de comando para editar perfil, carrera y tareas.
+- **`data.js`**: **EL CEREBRO DEL SISTEMA**. Tu central de comando para editar perfil, carrera y tareas.
 - **`style.css`**: Hoja de diseño y animaciones.
 - **`script.js`**: Motor de Reactividad encargado del enrutamiento. (No necesitas tocarlo).
 
@@ -40,7 +40,7 @@ Para cambiar cualquier información tuya o de la universidad, abre con tu editor
 
 ---
 
-## 📁 Gestión de Semanas y Tareas (Subir archivos)
+## Gestión de Semanas y Tareas (Subir archivos)
 
 Desplázate un poco más abajo en tu archivo `data.js` y encontrarás la lista `weeks`. El código recorrerá inteligentemente este lugar.
 
@@ -67,11 +67,11 @@ Busca la tarea específica dentro de la semana y asegúrate de apuntar el atribu
 
 ---
 
-## ⚡ Despliegue, Visor y Uso sin Internet
+## Despliegue, Visor y Uso sin Internet
 
 Tu portafolio está programado nativamente usando una arquitectura _Hash-Routing_ (`#`), combinada con selectores DOM en Javascript puro y un gestor nativo de transferencias en `Blob Data`.
 
 **¿Qué significa todo esto?**
 Significa que **puedes copiar toda la carpeta en un USB, compartirlo sin internet y este funcionará y abrirá todos los PDFs a la perfección** (file:// protocol) sin jamás colgarse ni depender de servidores web como Node o Apache. Además, es directamente subible a la red (Netlify o GitHub Pages) para obtener una web profesional y funcional en menos de un segundo y de forma totalmente libre.
 
-> Desarrollado con 💙 aplicando código limpio y principios de Software Sólido.
+> Desarrollado con aplicando código limpio y principios de Software Sólido.
