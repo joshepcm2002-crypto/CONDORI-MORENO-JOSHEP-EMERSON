@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Enlaces SPA
     document.querySelectorAll('a[href]').forEach(link => {
         link.addEventListener('click', e => {
             const href = link.getAttribute('href');
