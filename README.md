@@ -6,7 +6,7 @@ La filosofía principal de este repositorio es el **Control Centralizado**. No n
 
 ---
 
-## 🛠️ Estructura del Ecosistema
+## Estructura del Ecosistema
 
 - **`index.html`**: Portada y dashboard principal de bienvenida.
 - **`tareas.html`**: Repositorio dinámico o línea de progreso.
@@ -19,7 +19,7 @@ La filosofía principal de este repositorio es el **Control Centralizado**. No n
 
 ---
 
-## ⚙️ ¿Cómo actualizar mi Información e Imágenes?
+## ¿Cómo actualizar mi Información e Imágenes?
 
 Para cambiar cualquier información tuya o de la universidad, abre con tu editor de código o un bloc de notas el archivo `data.js`. Al inicio encontrarás el objeto `CONFIG`.
 
