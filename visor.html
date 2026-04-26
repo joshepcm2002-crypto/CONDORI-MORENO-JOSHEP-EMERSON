@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio | Visor Interactivo</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="data.js"></script>
+</head>
+<body>
+    <div class="bg-blob"></div>
+    
+
+    <div class="visor-page" id="visorContainer">
+        
+        <div class="visor-controls">
+            <button onclick="history.back()" class="visor-btn" title="Volver a la evidencia"><i class="ph ph-caret-left"></i> Volver</button>
+            <div class="visor-title" id="visorTitle">Cargando Documento...</div>
+            <button onclick="downloadVisorFile()" class="visor-btn-primary" id="visorDownloadBtn" style="display:none;"><i class="ph ph-download-simple"></i> Guardar Archivo</button>
+        </div>
+
+        <div class="visor-card">
+            <iframe id="visorFrame" class="visor-frame" src=""></iframe>
+            <div id="visorError" class="visor-error" style="display:none;">
+                <i class="ph ph-warning-circle" style="font-size:4rem; margin-bottom:1rem; color:var(--warning)"></i>
+                <p style="font-size:1.1rem; max-width:400px; line-height:1.5;">El archivo para esta evidencia aún no está listo o es estrictamente local.</p>
+            </div>
+        </div>
+    </div>
+
+    <button class="theme-toggle" id="themeToggle"><i class="ph ph-sun"></i></button>
+    <script src="script.js"></script>
+</body>
+</html>

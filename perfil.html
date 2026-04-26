@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio | Perfil</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="data.js"></script>
+</head>
+<body>
+    <div class="bg-blob"></div>
+
+    <nav class="dock">
+        <a href="index.html" class="dock-link"><i class="ph ph-house"></i> <span>Inicio</span></a>
+        <a href="tareas.html" class="dock-link"><i class="ph ph-stack"></i> <span>Semanas</span></a>
+        <a href="perfil.html" class="dock-link"><i class="ph ph-user"></i> <span>Perfil</span></a>
+    </nav>
+
+    <main class="main">
+        
+<div class="page-header">
+    <h1>Perfil Universitario</h1>
+    <p>Identidad corporativa y datos del estudiante dentro del plantel upla.</p>
+</div>
+
+<div class="profile-wrapper" style="flex-direction: column; gap: 2rem;">
+    <div class="id-card">
+        <img src="https://ui-avatars.com/api/?name=Joshep+Condori&background=3b82f6&color=fff&size=200" alt="Joshep" class="profile-pic">
+        <h2 class="profile-name">Joshep Condori</h2>
+        <div class="profile-career">Ingeniería de Sistemas</div>
+        
+        <div class="profile-meta mt-4">
+            <p><i class="ph ph-identification-card"></i> Codigo: 20XXXXXXX</p>
+            <p><i class="ph ph-envelope"></i> joshep@upla.edu.pe</p>
+            <p><i class="ph ph-buildings"></i> Universidad Peruana Los Andes</p>
+        </div>
+        
+        <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); text-align: left;">
+            <h3 style="margin-bottom: 0.5rem; color: var(--text); font-size: 1.1rem;"><i class="ph ph-user-focus" style="color: var(--primary);"></i> Sobre Mí</h3>
+            <p class="profile-aboutme" style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">...</p>
+        </div>
+    </div>
+
+    <div style="max-width: 600px; width: 100%; display: flex; flex-direction: column; gap: 2rem; padding: 1rem;">
+        <div style="text-align: center; background: var(--surface); padding: 2rem; border-radius: 24px; border: 1px solid var(--border);">
+            <h3 style="margin-bottom: 1rem; color: var(--text); font-size: 1.3rem;"><i class="ph ph-bank" style="color: var(--accent);"></i> Mi Universidad</h3>
+            <img class="profile-unilogo" src="" alt="Universidad" style="width: 120px; height: 120px; object-fit: contain; margin: 0 autp 1.5rem auto; display: none; margin-left: auto; margin-right: auto; margin-bottom: 1.5rem; border-radius:12px; background:white; padding: 10px;">
+            <p class="profile-aboutuni" style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6;">...</p>
+        </div>
+    </div>
+</div>
+
+    </main>
+
+    <footer>
+        <p>© 2026 UPLA - Portafolio Universitario</p>
+    </footer>
+
+    <button class="theme-toggle" id="themeToggle"><i class="ph ph-sun"></i></button>
+    <script src="script.js"></script>
+</body>
+</html>

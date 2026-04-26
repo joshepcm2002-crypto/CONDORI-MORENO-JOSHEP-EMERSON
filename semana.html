@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio | Semana</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="data.js"></script>
+</head>
+<body>
+    <div class="bg-blob"></div>
+
+    <nav class="dock">
+        <a href="index.html" class="dock-link"><i class="ph ph-house"></i> <span>Inicio</span></a>
+        <a href="tareas.html" class="dock-link active"><i class="ph ph-stack"></i> <span>Semanas</span></a>
+        <a href="perfil.html" class="dock-link"><i class="ph ph-user"></i> <span>Perfil</span></a>
+    </nav>
+
+    <main class="main">
+        <div class="page-header">
+            <h1 id="week-title">Cargando Tareas...</h1>
+            <p>Evidencias presentadas listadas dinámicamente desde el core.</p>
+        </div>
+
+        <a href="tareas.html" style="display:inline-flex; align-items:center; gap:0.5rem; color:var(--text-muted); margin-bottom:2rem; font-weight:600; text-decoration:none;"><i class="ph ph-arrow-left"></i> Volver al Directorio</a>
+
+        <div class="tasks-grid" id="week-tasks-grid">
+            <!-- Renderizado dinamico via script.js -->
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 UPLA - Portafolio Universitario</p>
+    </footer>
+
+    <button class="theme-toggle" id="themeToggle"><i class="ph ph-sun"></i></button>
+    <script src="script.js"></script>
+</body>
+</html>
