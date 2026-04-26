@@ -1,7 +1,7 @@
 const CONFIG = {
   studentName: "Condori Moreno Joshep Emerson",
   shortName: "Joshep Condori",
-  studentImage: "img/foto.jpg",
+  studentImage: "img/foto.jpeg",
   studentCode: "S03785C",
   studentEmail: "S03785c@ms.upla.edu.pe",
   aboutMe: "Estudiante de Ingeniería de Sistemas enfocado en la arquitectura de software y el desarrollo full-stack.",
