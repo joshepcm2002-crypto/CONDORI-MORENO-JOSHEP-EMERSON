@@ -7,6 +7,148 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="data.js"></script>
+    <style>
+        .documents-section {
+            max-width: 600px;
+            width: 100%;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+        }
+
+        .documents-header {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            color: var(--text);
+        }
+
+        .documents-header i {
+            color: var(--primary);
+        }
+
+        .upload-zone {
+            border: 2px dashed var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        .upload-zone:hover {
+            border-color: var(--primary);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .upload-zone.dragover {
+            border-color: var(--primary);
+            background: rgba(59, 130, 246, 0.15);
+        }
+
+        .upload-input {
+            display: none;
+        }
+
+        .upload-text {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .upload-text strong {
+            color: var(--text);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .documents-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .document-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            background: rgba(59, 130, 246, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .document-item:hover {
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .document-info {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            flex: 1;
+        }
+
+        .document-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .document-name {
+            color: var(--text);
+            font-weight: 500;
+            word-break: break-all;
+        }
+
+        .document-size {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .delete-btn {
+            background: rgba(239, 68, 68, 0.1);
+            border: none;
+            color: #ef4444;
+            padding: 0.5rem 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .delete-btn:hover {
+            background: rgba(239, 68, 68, 0.2);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: var(--text-muted);
+        }
+
+        .empty-state i {
+            font-size: 2.5rem;
+            opacity: 0.5;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .no-documents-message {
+            color: var(--text-muted);
+            padding: 1rem;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div class="bg-blob"></div>
@@ -45,8 +187,33 @@
     <div style="max-width: 600px; width: 100%; display: flex; flex-direction: column; gap: 2rem; padding: 1rem;">
         <div style="text-align: center; background: var(--surface); padding: 2rem; border-radius: 24px; border: 1px solid var(--border);">
             <h3 style="margin-bottom: 1rem; color: var(--text); font-size: 1.3rem;"><i class="ph ph-bank" style="color: var(--accent);"></i> Mi Universidad</h3>
-            <img class="profile-unilogo" src="" alt="Universidad" style="width: 120px; height: 120px; object-fit: contain; margin: 0 autp 1.5rem auto; display: none; margin-left: auto; margin-right: auto; margin-bottom: 1.5rem; border-radius:12px; background:white; padding: 10px;">
+            <img class="profile-unilogo" src="" alt="Universidad" style="width: 120px; height: 120px; object-fit: contain; margin: 0 autp 1.5rem auto; display: none; margin-left: auto; margin-right: auto;">
             <p class="profile-aboutuni" style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6;">...</p>
+        </div>
+
+        <!-- Sección de Documentos -->
+        <div class="documents-section">
+            <div class="documents-header">
+                <i class="ph ph-file-doc"></i>
+                <span>Mis Documentos</span>
+            </div>
+
+            <!-- Zona de carga -->
+            <div class="upload-zone" id="uploadZone">
+                <input type="file" id="fileInput" class="upload-input" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.txt,.png,.jpg,.jpeg,.zip">
+                <div class="upload-text">
+                    <strong>Arrastra archivos aquí o haz clic para seleccionar</strong>
+                    Soporta: PDF, DOC, DOCX, XLS, XLSX, TXT, PNG, JPG, ZIP
+                </div>
+            </div>
+
+            <!-- Lista de documentos -->
+            <div id="documentsList" class="documents-list">
+                <div class="empty-state">
+                    <i class="ph ph-folder-open"></i>
+                    <p>No hay documentos subidos aún</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -59,5 +226,133 @@
 
     <button class="theme-toggle" id="themeToggle"><i class="ph ph-sun"></i></button>
     <script src="script.js"></script>
+    
+    <script>
+        // Gestor de documentos
+        class DocumentManager {
+            constructor() {
+                this.documents = this.loadDocuments();
+                this.uploadZone = document.getElementById('uploadZone');
+                this.fileInput = document.getElementById('fileInput');
+                this.documentsList = document.getElementById('documentsList');
+                this.init();
+            }
+
+            init() {
+                this.setupEventListeners();
+                this.renderDocuments();
+            }
+
+            setupEventListeners() {
+                // Click para abrir selector de archivos
+                this.uploadZone.addEventListener('click', () => this.fileInput.click());
+
+                // Selección de archivos
+                this.fileInput.addEventListener('change', (e) => this.handleFiles(e.target.files));
+
+                // Drag and drop
+                this.uploadZone.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    this.uploadZone.classList.add('dragover');
+                });
+
+                this.uploadZone.addEventListener('dragleave', () => {
+                    this.uploadZone.classList.remove('dragover');
+                });
+
+                this.uploadZone.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    this.uploadZone.classList.remove('dragover');
+                    this.handleFiles(e.dataTransfer.files);
+                });
+            }
+
+            handleFiles(files) {
+                for (let file of files) {
+                    const document = {
+                        id: Date.now() + Math.random(),
+                        name: file.name,
+                        size: this.formatFileSize(file.size),
+                        type: file.type,
+                        date: new Date().toLocaleDateString('es-ES')
+                    };
+                    this.documents.push(document);
+                }
+                this.saveDocuments();
+                this.renderDocuments();
+                this.fileInput.value = '';
+            }
+
+            formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return Math.round(bytes / Math.pow(k, i) * 100) / 100 + ' ' + sizes[i];
+            }
+
+            getFileIcon(name) {
+                const ext = name.split('.').pop().toLowerCase();
+                const icons = {
+                    'pdf': 'ph-file-pdf',
+                    'doc': 'ph-file-doc',
+                    'docx': 'ph-file-doc',
+                    'xls': 'ph-table',
+                    'xlsx': 'ph-table',
+                    'txt': 'ph-file-text',
+                    'png': 'ph-image',
+                    'jpg': 'ph-image',
+                    'jpeg': 'ph-image',
+                    'zip': 'ph-file-zip'
+                };
+                return icons[ext] || 'ph-file';
+            }
+
+            deleteDocument(id) {
+                this.documents = this.documents.filter(doc => doc.id !== id);
+                this.saveDocuments();
+                this.renderDocuments();
+            }
+
+            renderDocuments() {
+                if (this.documents.length === 0) {
+                    this.documentsList.innerHTML = `
+                        <div class="empty-state">
+                            <i class="ph ph-folder-open"></i>
+                            <p>No hay documentos subidos aún</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                this.documentsList.innerHTML = this.documents.map(doc => `
+                    <div class="document-item">
+                        <div class="document-info">
+                            <i class="ph ${this.getFileIcon(doc.name)} document-icon"></i>
+                            <div>
+                                <div class="document-name">${doc.name}</div>
+                                <div class="document-size">${doc.size} • ${doc.date}</div>
+                            </div>
+                        </div>
+                        <button class="delete-btn" onclick="documentManager.deleteDocument(${doc.id})">
+                            <i class="ph ph-trash"></i>
+                        </button>
+                    </div>
+                `).join('');
+            }
+
+            saveDocuments() {
+                localStorage.setItem('documents', JSON.stringify(this.documents));
+            }
+
+            loadDocuments() {
+                const saved = localStorage.getItem('documents');
+                return saved ? JSON.parse(saved) : [];
+            }
+        }
+
+        // Inicializar gestor de documentos
+        const documentManager = new DocumentManager();
+    </script>
 </body>
 </html>
