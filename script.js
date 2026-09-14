@@ -122,36 +122,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- LÓGICA TAREAS.HTML (Directorio Dinámico por Unidad) ---
     const tareasContainer = document.getElementById('tareas-container');
     if(tareasContainer && typeof CONFIG !== 'undefined') {
-        const weeks = CONFIG.weeks;
-        const weeksPerUnit = 4;
-        const totalUnits = Math.ceil(weeks.length / weeksPerUnit);
+        const units = CONFIG.units;
         let htmlContent = '';
 
-        const numberToRoman = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
-
-        for(let u = 0; u < totalUnits; u++) {
-            const unitNumeral = numberToRoman[u] || (u + 1);
-            htmlContent += `<h2 class="unit-title">Unidad ${unitNumeral}</h2>`;
+        units.forEach(unit => {
+            htmlContent += `<h2 class="unit-title">${unit.title}</h2>`;
             htmlContent += `<div class="timeline">`;
             
-            for(let w = u * weeksPerUnit; w < (u * weeksPerUnit) + weeksPerUnit; w++) {
-                if(weeks[w]) {
-                    const week = weeks[w];
-                    // Si la semana tiene tareas reales
-                    const totalT = week.tasks.length;
-                    const sum = totalT > 0 ? (totalT === 1 ? '1 evidencia' : `${totalT} evidencias`) : 'Próximamente';
-                    
-                    htmlContent += `
-                        <a href="semana.html#${week.id}" class="timeline-content">
-                            <div class="timeline-node">${week.id}</div>
-                            <h3>${week.title}</h3>
-                            <p>${sum}</p>
-                        </a>
-                    `;
-                }
-            }
+            unit.activities.forEach(activity => {
+                const totalT = activity.tasks.length;
+                const sum = totalT > 0 ? (totalT === 1 ? '1 evidencia' : `${totalT} evidencias`) : 'Próximamente';
+                
+                htmlContent += `
+                    <a href="semana.html#${activity.id}" class="timeline-content">
+                        <div class="timeline-node">${activity.id}</div>
+                        <h3>${activity.title}</h3>
+                        <p>${sum}</p>
+                    </a>
+                `;
+            });
             htmlContent += `</div>`;
-        }
+        });
 
         tareasContainer.innerHTML = htmlContent;
     }
@@ -159,20 +150,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- LÓGICA SEMANA.HTML ---
     if(isLocalSemana) {
         // Extrae el ID del hash, ej: semana.html#4
-        let weekId = parseInt(hashString) || 1;
+        let activityId = parseInt(hashString) || 1;
         if(hashString.includes('id=')) {
-            weekId = parseInt(new URLSearchParams(hashString).get('id')) || 1;
+            activityId = parseInt(new URLSearchParams(hashString).get('id')) || 1;
         }
 
-        document.title = `Portafolio | Semana ${weekId}`;
+        document.title = `Portafolio | Actividad ${activityId}`;
 
-        const weekData = CONFIG.weeks.find(w => w.id === weekId);
+        // Buscar la actividad en todas las unidades
+        let activityData = null;
+        for(let unit of CONFIG.units) {
+            activityData = unit.activities.find(a => a.id === activityId);
+            if(activityData) break;
+        }
+        
         const weekGrid = document.getElementById('week-tasks-grid');
         
-        if(weekData) {
-            document.getElementById('week-title').textContent = `${weekData.title}`;
+        if(activityData) {
+            document.getElementById('week-title').textContent = `${activityData.title}`;
             
-            weekData.tasks.forEach(task => {
+            activityData.tasks.forEach(task => {
                 let iconClass = 'ph-file';
                 if(task.type==='documento') iconClass = 'ph-file-pdf';
                 if(task.type==='codigo') iconClass = 'ph-code';
@@ -196,11 +193,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 weekGrid.innerHTML += html;
             });
-            if(weekData.tasks.length === 0) {
-                weekGrid.innerHTML = `<p style="color:var(--text-muted); grid-column: span 12; text-align:center;">No hay tareas subidas en esta semana.</p>`;
+            if(activityData.tasks.length === 0) {
+                weekGrid.innerHTML = `<p style="color:var(--text-muted); grid-column: span 12; text-align:center;">No hay tareas subidas en esta actividad.</p>`;
             }
         } else {
-             document.getElementById('week-title').textContent = "Semana No Registrada";
+             document.getElementById('week-title').textContent = "Actividad No Registrada";
         }
     }
 
