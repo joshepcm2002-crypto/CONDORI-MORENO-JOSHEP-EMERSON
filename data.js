@@ -10,57 +10,65 @@ const CONFIG = {
   career: "Ingeniería de Sistemas y Computación",
   shortCareer: "Ingeniería",
   universityName: "Universidad Peruana Los Andes",
-  course: "Taller de Desarrollo de Aplicaciones",
+  course: "Algoritmos y Estructura de Datos",
   semester: "2026 - I",
   footerText: "© 2026 [UNIVERSITY_NAME] - [NAME_STUDENT]",
-  weeks: [
+  activities: [
     {
       id: 1,
-      title: "APACHE MAVEN",
-      tasks: [
-        {
-          title: "Guía Git",
-          type: "documento",
-          status: "entregado",
-          file: "Desarrollo de Aplicaciones 1/Semana1/GUIA GITHUB.pdf"
-        }
-      ]
+      title: "Introducción a Algoritmos",
+      type: "documento",
+      status: "entregado",
+      file: "Desarrollo de Aplicaciones 1/Semana1/GUIA GITHUB.pdf"
     },
     {
       id: 2,
-      title: "Control de Versiones",
-      tasks: [
-        {
-          title: "Estructura de Branches",
-          type: "codigo",
-          status: "entregado",
-          file: "Desarrollo de Aplicaciones/Semana2/repo.zip"
-        }
-      ]
+      title: "Análisis de Complejidad",
+      type: "codigo",
+      status: "entregado",
+      file: "Desarrollo de Aplicaciones/Semana2/repo.zip"
     },
     {
       id: 3,
-      title: "Programación Orientada a Objetos",
-      tasks: [
-        {
-          title: "Clases y Objetos",
-          type: "documento",
-          status: "entregado",
-          file: "#"
-        }
-      ]
+      title: "Estructuras de Datos Básicas",
+      type: "documento",
+      status: "entregado",
+      file: "#"
     },
     {
       id: 4,
-      title: "Herencia y Polimorfismo",
-      tasks: [
-        {
-          title: "Práctica 4",
-          type: "codigo",
-          status: "pendiente",
-          file: "#"
-        }
-      ]
+      title: "Pilas y Colas",
+      type: "codigo",
+      status: "entregado",
+      file: "#"
+    },
+    {
+      id: 5,
+      title: "Listas Enlazadas",
+      type: "codigo",
+      status: "pendiente",
+      file: "#"
+    },
+    {
+      id: 6,
+      title: "Árboles Binarios",
+      type: "codigo",
+      status: "pendiente",
+      file: "#"
+    },
+    {
+      id: 7,
+      title: "Búsqueda y Ordenamiento",
+      type: "documento",
+      status: "pendiente",
+      file: "#"
+    },
+    {
+      id: 8,
+      title: "Grafos",
+      type: "codigo",
+      status: "pendiente",
+      file: "#"
     }
   ]
 };
