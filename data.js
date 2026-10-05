@@ -35,6 +35,13 @@ const CONFIG = {
               type: "documento",
               status: "entregado",
               file: "Desarrollo de Aplicaciones 1/Semana1/SEMANA1_APACHE.pdf"
+            },
+            {
+              id: 3,
+              title: "Infografías - Semana 01",
+              type: "documento",
+              status: "entregado",
+              file: "INFOGRAFIAS - SEMANA 01 ALGORITMOS Y ESTRUCTURA DE DATOS.pdf"
             }
           ]
         },
@@ -43,7 +50,7 @@ const CONFIG = {
           title: "Semana 02",
           tasks: [
             {
-              id: 3,
+              id: 4,
               title: "Semana 2 - Métodos",
               type: "documento",
               status: "entregado",
@@ -56,7 +63,7 @@ const CONFIG = {
           title: "Semana 03",
           tasks: [
             {
-              id: 4,
+              id: 5,
               title: "Semana 3 - POO",
               type: "documento",
               status: "entregado",
@@ -75,7 +82,7 @@ const CONFIG = {
           title: "Actividad 1",
           tasks: [
             {
-              id: 5,
+              id: 6,
               title: "Búsqueda y Ordenamiento",
               type: "documento",
               status: "pendiente",
@@ -88,7 +95,7 @@ const CONFIG = {
           title: "Actividad 2",
           tasks: [
             {
-              id: 6,
+              id: 7,
               title: "Grafos",
               type: "codigo",
               status: "pendiente",
