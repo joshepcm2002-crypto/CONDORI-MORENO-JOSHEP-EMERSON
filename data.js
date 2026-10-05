@@ -34,28 +34,12 @@ const CONFIG = {
         {
           id: 2,
           title: "Semana 02",
-          tasks: [
-            {
-              id: 2,
-              title: "Semana 2 - Métodos",
-              type: "documento",
-              status: "entregado",
-              file: "Desarrollo de Aplicaciones 1/Semana2/SEMANA2_METODOS.pdf"
-            }
-          ]
+          tasks: []
         },
         {
           id: 3,
           title: "Semana 03",
-          tasks: [
-            {
-              id: 3,
-              title: "Semana 3 - POO",
-              type: "documento",
-              status: "entregado",
-              file: "Desarrollo de Aplicaciones 1/Semana3/SEMANA3_POO.pdf"
-            }
-          ]
+          tasks: []
         }
       ]
     },
