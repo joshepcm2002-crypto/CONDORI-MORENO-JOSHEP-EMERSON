@@ -20,79 +20,47 @@ const CONFIG = {
       activities: [
         {
           id: 1,
-          title: "Actividad 1",
+          title: "Semana 01",
           tasks: [
             {
               id: 1,
-              title: "Introducción a Algoritmos",
+              title: "Manual para Ingresar y Usar GitHub",
               type: "documento",
               status: "entregado",
-              file: "Desarrollo de Aplicaciones 1/Semana1/GUIA GITHUB.pdf"
+              file: "Desarrollo de Aplicaciones 1/Semana1/Manual para Ingresar y Usar GitHub (1).pdf"
+            },
+            {
+              id: 2,
+              title: "Semana 1 - Apache",
+              type: "documento",
+              status: "entregado",
+              file: "Desarrollo de Aplicaciones 1/Semana1/SEMANA1_APACHE.pdf"
             }
           ]
         },
         {
           id: 2,
-          title: "Actividad 2",
+          title: "Semana 02",
           tasks: [
             {
-              id: 2,
-              title: "Análisis de Complejidad",
-              type: "codigo",
+              id: 3,
+              title: "Semana 2 - Métodos",
+              type: "documento",
               status: "entregado",
-              file: "Desarrollo de Aplicaciones 1/Semana2/repo.zip"
+              file: "Desarrollo de Aplicaciones 1/Semana2/SEMANA2_METODOS.pdf"
             }
           ]
         },
         {
           id: 3,
-          title: "Actividad 3",
-          tasks: [
-            {
-              id: 3,
-              title: "Estructuras de Datos Básicas",
-              type: "documento",
-              status: "entregado",
-              file: "#"
-            }
-          ]
-        },
-        {
-          id: 4,
-          title: "Actividad 4",
+          title: "Semana 03",
           tasks: [
             {
               id: 4,
-              title: "Pilas y Colas",
-              type: "codigo",
+              title: "Semana 3 - POO",
+              type: "documento",
               status: "entregado",
-              file: "#"
-            }
-          ]
-        },
-        {
-          id: 5,
-          title: "Actividad 5",
-          tasks: [
-            {
-              id: 5,
-              title: "Listas Enlazadas",
-              type: "codigo",
-              status: "entregado",
-              file: "#"
-            }
-          ]
-        },
-        {
-          id: 6,
-          title: "Actividad 6",
-          tasks: [
-            {
-              id: 6,
-              title: "Árboles Binarios",
-              type: "codigo",
-              status: "entregado",
-              file: "#"
+              file: "Desarrollo de Aplicaciones 1/Semana3/SEMANA3_POO.pdf"
             }
           ]
         }
@@ -103,11 +71,11 @@ const CONFIG = {
       title: "Unidad II",
       activities: [
         {
-          id: 7,
+          id: 4,
           title: "Actividad 1",
           tasks: [
             {
-              id: 7,
+              id: 5,
               title: "Búsqueda y Ordenamiento",
               type: "documento",
               status: "pendiente",
@@ -116,11 +84,11 @@ const CONFIG = {
           ]
         },
         {
-          id: 8,
+          id: 5,
           title: "Actividad 2",
           tasks: [
             {
-              id: 8,
+              id: 6,
               title: "Grafos",
               type: "codigo",
               status: "pendiente",
