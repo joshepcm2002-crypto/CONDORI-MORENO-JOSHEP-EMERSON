@@ -24,20 +24,6 @@ const CONFIG = {
           tasks: [
             {
               id: 1,
-              title: "Manual para Ingresar y Usar GitHub",
-              type: "documento",
-              status: "entregado",
-              file: "Desarrollo de Aplicaciones 1/Semana1/Manual para Ingresar y Usar GitHub (1).pdf"
-            },
-            {
-              id: 2,
-              title: "Semana 1 - Apache",
-              type: "documento",
-              status: "entregado",
-              file: "Desarrollo de Aplicaciones 1/Semana1/SEMANA1_APACHE.pdf"
-            },
-            {
-              id: 3,
               title: "Infografías - Semana 01",
               type: "documento",
               status: "entregado",
@@ -50,7 +36,7 @@ const CONFIG = {
           title: "Semana 02",
           tasks: [
             {
-              id: 4,
+              id: 2,
               title: "Semana 2 - Métodos",
               type: "documento",
               status: "entregado",
@@ -63,7 +49,7 @@ const CONFIG = {
           title: "Semana 03",
           tasks: [
             {
-              id: 5,
+              id: 3,
               title: "Semana 3 - POO",
               type: "documento",
               status: "entregado",
@@ -82,7 +68,7 @@ const CONFIG = {
           title: "Actividad 1",
           tasks: [
             {
-              id: 6,
+              id: 4,
               title: "Búsqueda y Ordenamiento",
               type: "documento",
               status: "pendiente",
@@ -95,7 +81,7 @@ const CONFIG = {
           title: "Actividad 2",
           tasks: [
             {
-              id: 7,
+              id: 5,
               title: "Grafos",
               type: "codigo",
               status: "pendiente",
