@@ -1,77 +1,62 @@
-# Portafolio Académico Inteligente (SPA)
+# Portafolio académico
 
-Bienvenido al ecosistema de tu Portafolio Universitario. Este proyecto ha sido reescrito desde cero utilizando una arquitectura **Bento-Box** moderna y reactiva. 
+Sitio estático para organizar el perfil del estudiante y las evidencias del curso. No requiere instalar dependencias ni ejecutar un servidor para abrir las páginas principales: abre `index.html` en el navegador.
 
-La filosofía principal de este repositorio es el **Control Centralizado**. No necesitas duplicar archivos `.html` ni saber programación avanzada para administrar tu página. Todas las actualizaciones (incluyendo tu foto, textos descriptivos y semanas de tareas) se realizan única y exclusivamente editando el archivo `data.js`.
+## Estructura
 
----
+- `index.html`: portada con resumen del portafolio.
+- `tareas.html`: catálogo de cuatro unidades desplegables con sus 16 semanas.
+- `semana.html`: vista de materiales y evidencias de una semana, seleccionada mediante el fragmento de URL (por ejemplo, `semana.html#1`).
+- `perfil.html`: información del estudiante y de la universidad.
+- `visor.html`: visor de archivos asociados a las evidencias.
+- `data.js`: configuración del perfil, curso y actividades.
+- `script.js` y `style.css`: comportamiento y estilos compartidos.
+- `img/`, `Semana1/` y `Desarrollo de Aplicaciones 1/`: imágenes y materiales del portafolio.
 
-## Estructura del Ecosistema
+## Actualizar el perfil
 
-- **`index.html`**: Portada y dashboard principal de bienvenida.
-- **`tareas.html`**: Repositorio dinámico o línea de progreso.
-- **`perfil.html`**: Presentación personal tipo carnet (CV), con logo y descripción institucional.
-- **`semana.html`**: **[NO DUPLICAR]** Plantilla maestra paramétrica. Esta única página se encarga de renderizar la semana 1, la semana 16 o cualquier otra de forma dinámica dependiendo del enlace (`semana.html#3`). 
-- **`visor.html`**: Navegador PDF de Pantalla Exclusiva con una Isla Dinámica para una lectura purista y un gestor nativo de descargas para evitar redirecciones molestas.
-- **`data.js`**: **EL CEREBRO DEL SISTEMA**. Tu central de comando para editar perfil, carrera y tareas.
-- **`style.css`**: Hoja de diseño y animaciones.
-- **`script.js`**: Motor de Reactividad encargado del enrutamiento. (No necesitas tocarlo).
+Edita el objeto `CONFIG` al inicio de `data.js`. Allí puedes cambiar el nombre, la foto, el código, el correo, la carrera, la universidad, el curso y el ciclo. Las páginas que muestran esos datos se actualizan automáticamente; la cifra de evidencias entregadas también se calcula desde las actividades.
 
----
+Usa rutas relativas al repositorio para las imágenes y archivos, por ejemplo:
 
-## ¿Cómo actualizar mi Información e Imágenes?
+```js
+studentImage: "img/foto.jpeg",
+universityLogo: "img/logoupla.png",
+```
 
-Para cambiar cualquier información tuya o de la universidad, abre con tu editor de código o un bloc de notas el archivo `data.js`. Al inicio encontrarás el objeto `CONFIG`.
+## Agregar una actividad o evidencia
 
-### Diccionario de Variables de Perfil
-*   **`studentName`**: Tu nombre legal completo para la tarjeta formal (Ej. `"Condori Moreno Joshep Emerson"`).
-*   **`shortName`**: Tu nombre de pila o apodo corto para los saludos (Ej. `"Joshep"`).
-*   **`studentImage`**: La ruta a tu foto. (Ej. `"img/foto.jpg"`). Solo mete la foto en la carpeta `img` y escribe aquí su nombre.
-*   **`studentCode`** y **`studentEmail`**: Tu código universitario y correo.
-*   **`aboutMe`**: **[NUEVO]** Aquí redactas o editas totalmente tu biografía (la sección "Sobre Mí").
-*   **`career`** y **`shortCareer`**: Tu carrera formal (Ej. `"Ingeniería de Sistemas y Computación"`) y la abreviación para el muro de bienvenida (`"Ingeniería"`).
+Las semanas se organizan dentro de las cuatro unidades de `units`. Cada semana tiene un `id` único, un tema, una descripción, materiales y una lista `tasks`:
 
-### Diccionario de Variables Institucionales (Universidad)
-*   **`universityName`**: El nombre de tu institución.
-*   **`aboutUniversity`**: **[NUEVO]** Descripción, visión o pequeña reseña de tu universidad.
-*   **`universityLogo`**: El escudo de tu institución (Ej. `"img/logoupla.png"`).
-*   **`course`** y **`semester`**: Materia y ciclo en curso. (Estos se reflejan textualmente en la bienvenida del Index).
-*   **`footerText`**: El Copyright de final de página (usa corchetes autocompletables como `[UNIVERSITY_NAME] - [NAME_STUDENT]`).
-
----
-
-## Gestión de Semanas y Tareas (Subir archivos)
-
-Desplázate un poco más abajo en tu archivo `data.js` y encontrarás la lista `weeks`. El código recorrerá inteligentemente este lugar.
-
-### ¿Cómo agregar o habilitar un archivo PDF a la semana?
-
-Busca la tarea específica dentro de la semana y asegúrate de apuntar el atributo `file` a tu archivo:
-```javascript
+```js
 {
-  id: 1,
-  title: "APACHE MAVEN", // <- El título general de la unidad/semana
+  id: 3,
+  title: "ArrayList y Vector",
+  description: "Uso de colecciones dinámicas para almacenar y administrar elementos.",
+  materials: [
+    {
+      title: "Material de clase",
+      file: "Desarrollo de Aplicaciones 1/Semana3/SEMANA3_POO.pdf"
+    }
+  ],
   tasks: [
     {
-      title: "Guía Git",      // <- Título de la evidencia
-      type: "documento",      // <- Iconografía (documento, code, etc)
-      status: "entregado",    // <- Colores de estado (entregado, pendiente, en progreso)
-      file: "Semana1/GUIA GITHUB.pdf" // <- RUTA AL ARCHIVO QUE QUIERES MOSTRAR
+      id: 3,
+      title: "Nombre de la evidencia",
+      type: "documento",
+      status: "entregado",
+      file: "Desarrollo de Aplicaciones 1/Semana3/archivo.pdf"
     }
   ]
 }
 ```
 
-*   **Sin evidencias aún:** Si todavía no has subido el PDF o es privado, simplemente cámbialo a `file: "#"` o `file: "null"`. El sistema lo detectará inteligentemente y en su lugar mostrará un aviso de Error Preventivo.
-*   **URLs Externas:** Si tu archivo pesa mucho y lo subiste a Google Drive, puedes simplemente pegar el enlace en lugar de la ruta local (ej. `file: "https://drive.google.com/..."`).
+Los tipos reconocidos son `documento`, `codigo` y `presentacion`. Los estados más comunes son `entregado`, `pendiente` y `en progreso`. Para una semana sin materiales o evidencias, deja `materials: []` y `tasks: []`. Para mostrar una evidencia pendiente de archivo, usa `file: "#"`.
 
----
+El enlace a la actividad se genera a partir de su identificador, así que mantén los `id` de actividades únicos en todas las unidades. Guarda los archivos dentro del repositorio y conserva su ruta relativa para que los enlaces funcionen al publicar el sitio.
 
-## Despliegue, Visor y Uso sin Internet
+## Visualización y publicación
 
-Tu portafolio está programado nativamente usando una arquitectura _Hash-Routing_ (`#`), combinada con selectores DOM en Javascript puro y un gestor nativo de transferencias en `Blob Data`.
+Los archivos locales se pueden abrir desde el visor del portafolio. Las URLs externas dependen de que el servicio de origen permita su visualización y descarga desde el navegador.
 
-**¿Qué significa todo esto?**
-Significa que **puedes copiar toda la carpeta en un USB, compartirlo sin internet y este funcionará y abrirá todos los PDFs a la perfección** (file:// protocol) sin jamás colgarse ni depender de servidores web como Node o Apache. Además, es directamente subible a la red (Netlify o GitHub Pages) para obtener una web profesional y funcional en menos de un segundo y de forma totalmente libre.
-
-> Desarrollado con aplicando código limpio y principios de Software Sólido.
+Puedes publicar el sitio en GitHub Pages o en otro alojamiento estático. El contenido y los archivos locales forman parte del repositorio; los iconos y la tipografía se cargan desde servicios externos, por lo que su apariencia puede variar sin conexión a internet.

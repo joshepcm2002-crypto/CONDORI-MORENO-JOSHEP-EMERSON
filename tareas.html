@@ -11,20 +11,41 @@
 <body>
     <div class="bg-blob"></div>
 
+    <a class="site-brand" href="index.html" aria-label="Portafolio académico UPLA, ir al inicio">
+        <img src="img/logoupla.png" alt="Logo de la Universidad Peruana Los Andes">
+        <span><strong>PORTAFOLIO</strong><small>UNIVERSITARIO</small></span>
+    </a>
+
     <nav class="dock">
         <a href="index.html" class="dock-link"><i class="ph ph-house"></i> <span>Inicio</span></a>
         <a href="tareas.html" class="dock-link"><i class="ph ph-stack"></i> <span>Semanas</span></a>
         <a href="perfil.html" class="dock-link"><i class="ph ph-user"></i> <span>Perfil</span></a>
     </nav>
 
-    <main class="main">
-        
-        <div class="page-header">
-            <h1>Línea de Progreso</h1>
-            <p>Accede a los proyectos y lecturas organizados por semanas y actividades.</p>
-        </div>
-        
-        <div id="tareas-container"></div>
+    <main class="main course-main">
+        <section class="course-hero">
+            <div class="course-hero-copy">
+                <span class="course-kicker">CURSO <span class="hero-semester">2026 - I</span> · UPLA</span>
+                <h1>Algoritmos y <span>Estructura de Datos</span></h1>
+                <p>Curso teórico-práctico para resolver problemas mediante principios algorítmicos y estructuras de datos. Explora el recorrido desde arreglos hasta árboles, grafos, ordenación y búsqueda.</p>
+            </div>
+            <div class="course-facts" aria-label="Estructura del curso">
+                <div><strong id="unit-count">4</strong><span>unidades</span></div>
+                <div><strong id="week-count">16</strong><span>semanas</span></div>
+            </div>
+        </section>
+
+        <section class="course-progress" aria-label="Avance del curso">
+            <div class="progress-label">
+                <span>AVANCE DEL RECORRIDO</span>
+                <span id="progress-count">0 / 16 semanas</span>
+            </div>
+            <div class="progress-track" role="progressbar" aria-label="Semanas con evidencias entregadas" aria-valuemin="0" aria-valuemax="16" aria-valuenow="0">
+                <span class="progress-fill"></span>
+            </div>
+        </section>
+
+        <section id="tareas-container" class="unit-grid" aria-label="Unidades del curso"></section>
     </main>
 
     <footer>

@@ -11,6 +11,11 @@
 <body>
     <div class="bg-blob"></div>
 
+    <a class="site-brand" href="index.html" aria-label="Portafolio académico UPLA, ir al inicio">
+        <img src="img/logoupla.png" alt="Logo de la Universidad Peruana Los Andes">
+        <span><strong>PORTAFOLIO</strong><small>UNIVERSITARIO</small></span>
+    </a>
+
     <nav class="dock">
         <a href="index.html" class="dock-link"><i class="ph ph-house"></i> <span>Inicio</span></a>
         <a href="tareas.html" class="dock-link active"><i class="ph ph-stack"></i> <span>Semanas</span></a>
@@ -19,15 +24,32 @@
 
     <main class="main">
         <div class="page-header">
-            <h1 id="week-title">Cargando Tareas...</h1>
-            <p>Evidencias presentadas listadas dinámicamente desde el core.</p>
+            <span class="week-page-label" id="week-label">SEMANA</span>
+            <h1 id="week-title">Cargando semana...</h1>
+            <p id="week-description">Materiales y actividades de la semana.</p>
         </div>
 
         <a href="tareas.html" style="display:inline-flex; align-items:center; gap:0.5rem; color:var(--text-muted); margin-bottom:2rem; font-weight:600; text-decoration:none;"><i class="ph ph-arrow-left"></i> Volver al Directorio</a>
 
-        <div class="tasks-grid" id="week-tasks-grid">
-            <!-- Renderizado dinamico via script.js -->
-        </div>
+        <section class="week-detail-section">
+            <div class="week-section-heading">
+                <div>
+                    <span class="activity-kicker">RECURSOS DEL CURSO</span>
+                    <h2>Materiales <span class="week-material-total" id="week-material-count"></span></h2>
+                </div>
+            </div>
+            <div class="week-materials-grid" id="week-materials-grid"></div>
+        </section>
+
+        <section class="week-detail-section">
+            <div class="week-section-heading">
+                <div>
+                    <span class="activity-kicker">GALERÍA / ACTIVIDAD</span>
+                    <h2>Actividades y evidencias</h2>
+                </div>
+            </div>
+            <div class="tasks-grid" id="week-tasks-grid"></div>
+        </section>
     </main>
 
     <footer>

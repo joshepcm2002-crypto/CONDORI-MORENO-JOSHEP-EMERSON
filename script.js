@@ -13,12 +13,18 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href]').forEach(link => {
         link.addEventListener('click', e => {
             const href = link.getAttribute('href');
-            if(href && !href.startsWith('#') && !link.hasAttribute('download') && link.getAttribute('target') !== '_blank') {
-                e.preventDefault();
-                document.body.classList.remove('page-loaded');
-                document.body.classList.add('page-exiting');
-                setTimeout(() => window.location.href = href, 350);
-            }
+            if (!href || href.startsWith('#') || link.hasAttribute('download') ||
+                link.getAttribute('target') === '_blank' || e.defaultPrevented ||
+                e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+            const destination = new URL(link.href, window.location.href);
+            if (destination.origin !== window.location.origin ||
+                destination.protocol !== window.location.protocol) return;
+
+            e.preventDefault();
+            document.body.classList.remove('page-loaded');
+            document.body.classList.add('page-exiting');
+            setTimeout(() => window.location.href = destination.href, 350);
         });
     });
 
@@ -61,6 +67,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Reactividad Data
     if (typeof CONFIG !== 'undefined') {
+        const allTasks = (CONFIG.units || []).reduce((tasks, unit) => {
+            unit.activities.forEach(activity => tasks.push(...activity.tasks));
+            return tasks;
+        }, []);
+        const deliveredCount = allTasks.filter(task =>
+            String(task.status).toLowerCase() === 'entregado'
+        ).length;
+        document.querySelectorAll('.stat-number').forEach(el => {
+            el.textContent = deliveredCount;
+        });
+
         if (CONFIG.studentName) {
             document.querySelectorAll('.profile-name').forEach(el => el.textContent = CONFIG.studentName);
         }
@@ -83,13 +100,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if(indexSub && CONFIG.studentCode) indexSub.textContent = CONFIG.studentCode;
         }
         if (CONFIG.studentCode) {
-            document.querySelectorAll('.profile-meta p:first-child').forEach(el => el.innerHTML = `<i class="ph ph-identification-card"></i> Codigo: ${CONFIG.studentCode}`);
+            document.querySelectorAll('.profile-meta p:first-child').forEach(el => el.innerHTML = `<i class="ph ph-identification-card"></i> Código: ${escapeHTML(CONFIG.studentCode)}`);
         }
         if (CONFIG.studentEmail) {
-            document.querySelectorAll('.profile-meta p:nth-child(2)').forEach(el => el.innerHTML = `<i class="ph ph-envelope"></i> ${CONFIG.studentEmail}`);
+            document.querySelectorAll('.profile-meta p:nth-child(2)').forEach(el => el.innerHTML = `<i class="ph ph-envelope"></i> ${escapeHTML(CONFIG.studentEmail)}`);
         }
         if (CONFIG.universityName) {
-            document.querySelectorAll('.profile-meta p:nth-child(3)').forEach(el => el.innerHTML = `<i class="ph ph-buildings"></i> ${CONFIG.universityName}`);
+            document.querySelectorAll('.profile-meta p:nth-child(3)').forEach(el => el.innerHTML = `<i class="ph ph-buildings"></i> ${escapeHTML(CONFIG.universityName)}`);
             document.querySelectorAll('.hero-university').forEach(el => el.textContent = CONFIG.universityName);
         }
         if (CONFIG.aboutMe) document.querySelectorAll('.profile-aboutme').forEach(el => el.textContent = CONFIG.aboutMe);
@@ -122,29 +139,85 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- LÓGICA TAREAS.HTML (Directorio Dinámico por Unidad) ---
     const tareasContainer = document.getElementById('tareas-container');
     if(tareasContainer && typeof CONFIG !== 'undefined') {
-        const units = CONFIG.units;
-        let htmlContent = '';
+        const units = CONFIG.units || [];
+        const activities = units.reduce((all, unit) => all.concat(unit.activities || []), []);
+        const weekCount = activities.length;
+        const completedWeeks = activities.filter(activity =>
+            (activity.tasks || []).some(task => String(task.status).toLowerCase() === 'entregado')
+        ).length;
+        const progress = weekCount ? Math.round((completedWeeks / weekCount) * 100) : 0;
+        const progressTrack = document.querySelector('.progress-track');
 
-        units.forEach(unit => {
-            htmlContent += `<h2 class="unit-title">${unit.title}</h2>`;
-            htmlContent += `<div class="timeline">`;
-            
-            unit.activities.forEach(activity => {
-                const totalT = activity.tasks.length;
-                const sum = totalT > 0 ? (totalT === 1 ? '1 evidencia' : `${totalT} evidencias`) : 'Próximamente';
-                
-                htmlContent += `
-                    <a href="semana.html#${activity.id}" class="timeline-content">
-                        <div class="timeline-node">${activity.id}</div>
-                        <h3>${activity.title}</h3>
-                        <p>${sum}</p>
+        document.getElementById('unit-count').textContent = units.length;
+        document.getElementById('week-count').textContent = weekCount;
+        document.getElementById('progress-count').textContent = `${completedWeeks} / ${weekCount} semanas`;
+        progressTrack.setAttribute('aria-valuemax', weekCount);
+        progressTrack.setAttribute('aria-valuenow', completedWeeks);
+        progressTrack.querySelector('.progress-fill').style.width = `${progress}%`;
+
+        tareasContainer.innerHTML = units.map(unit => {
+            const firstWeek = unit.activities[0].id;
+            const lastWeek = unit.activities[unit.activities.length - 1].id;
+            const unitId = `unit-${unit.id}`;
+            const weeks = unit.activities.map(activity => {
+                const weekNumber = String(activity.id).padStart(2, '0');
+                const files = new Set(
+                    (activity.materials || [])
+                        .map(item => item.file)
+                        .filter(file => file && file !== '#' && file !== 'null')
+                );
+                const tasks = activity.tasks || [];
+                const taskSummary = tasks.length
+                    ? tasks.map(task => `<span>${escapeHTML(task.title)}</span>`).join('')
+                    : '<span>Sin actividades registradas</span>';
+
+                return `
+                    <a class="week-card" href="semana.html#${activity.id}">
+                        <div class="week-card-heading">
+                            <span class="week-number">${weekNumber}</span>
+                            <span class="week-label">SEMANA ${weekNumber}</span>
+                        </div>
+                        <h3>${escapeHTML(activity.title)}</h3>
+                        <p class="week-description">${escapeHTML(activity.description || '')}</p>
+                        <div class="week-material-count">
+                            <i class="ph ph-files"></i>
+                            <strong>Materiales</strong>
+                            <span>${files.size} ${files.size === 1 ? 'archivo' : 'archivos'}</span>
+                        </div>
+                        <div class="week-activity">
+                            <span class="activity-kicker">ACTIVIDAD / EVIDENCIA</span>
+                            <strong>${taskSummary}</strong>
+                            <span class="activity-count">${tasks.length} ${tasks.length === 1 ? 'actividad' : 'actividades'}</span>
+                        </div>
                     </a>
                 `;
-            });
-            htmlContent += `</div>`;
-        });
+            }).join('');
 
-        tareasContainer.innerHTML = htmlContent;
+            return `
+                <article class="unit-card">
+                    <button class="unit-toggle" type="button" aria-expanded="false" aria-controls="${unitId}">
+                        <span class="unit-number">${String(unit.id).padStart(2, '0')}</span>
+                        <span class="unit-summary">
+                            <span class="unit-label">${escapeHTML(unit.title)}</span>
+                            <strong>${escapeHTML(unit.subtitle)}</strong>
+                            <span class="unit-range">Semanas ${String(firstWeek).padStart(2, '0')} — ${String(lastWeek).padStart(2, '0')}</span>
+                        </span>
+                        <i class="ph ph-plus unit-toggle-icon" aria-hidden="true"></i>
+                    </button>
+                    <div class="unit-content" id="${unitId}" hidden>
+                        <div class="week-grid">${weeks}</div>
+                    </div>
+                </article>
+            `;
+        }).join('');
+
+        tareasContainer.querySelectorAll('.unit-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                button.setAttribute('aria-expanded', String(!isExpanded));
+                document.getElementById(button.getAttribute('aria-controls')).hidden = isExpanded;
+            });
+        });
     }
 
     // --- LÓGICA SEMANA.HTML ---
@@ -155,7 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
             activityId = parseInt(new URLSearchParams(hashString).get('id')) || 1;
         }
 
-        document.title = `Portafolio | Actividad ${activityId}`;
+        document.title = `Portafolio | Semana ${String(activityId).padStart(2, '0')}`;
 
         // Buscar la actividad en todas las unidades
         let activityData = null;
@@ -167,37 +240,77 @@ document.addEventListener('DOMContentLoaded', () => {
         const weekGrid = document.getElementById('week-tasks-grid');
         
         if(activityData) {
-            document.getElementById('week-title').textContent = `${activityData.title}`;
+            const weekNumber = String(activityData.id).padStart(2, '0');
+            const materialsGrid = document.getElementById('week-materials-grid');
+            const materials = activityData.materials || [];
+            const tasks = activityData.tasks || [];
+            const fileCount = new Set(
+                materials
+                    .map(item => item.file)
+                    .filter(file => file && file !== '#' && file !== 'null')
+            ).size;
+
+            document.getElementById('week-label').textContent = `SEMANA ${weekNumber}`;
+            document.getElementById('week-title').textContent = activityData.title;
+            document.getElementById('week-description').textContent = activityData.description || '';
+            document.getElementById('week-material-count').textContent =
+                `${fileCount} ${fileCount === 1 ? 'archivo' : 'archivos'}`;
             
-            activityData.tasks.forEach(task => {
+            materialsGrid.innerHTML = materials.length
+                ? materials.map(material => `
+                    <article class="material-card">
+                        <div class="task-icon"><i class="ph ph-file-pdf"></i></div>
+                        <div class="material-card-copy">
+                            <span class="activity-kicker">MATERIAL DE ESTUDIO</span>
+                            <h3>${escapeHTML(material.title)}</h3>
+                        </div>
+                        <button class="btn" type="button" data-title="${escapeHTML(material.title)}" data-file="${escapeHTML(material.file)}">
+                            <i class="ph ph-eye"></i> Visualizar
+                        </button>
+                    </article>
+                `).join('')
+                : '<p class="empty-week-state">Aún no hay materiales cargados para esta semana.</p>';
+
+            const taskCards = tasks.map(task => {
                 let iconClass = 'ph-file';
                 if(task.type==='documento') iconClass = 'ph-file-pdf';
                 if(task.type==='codigo') iconClass = 'ph-code';
                 if(task.type==='presentacion') iconClass = 'ph-presentation-chart';
+                const status = String(task.status || 'pendiente');
+                const statusClass = status.trim().toLowerCase().replace(/\s+/g, '-');
 
-                const html = `
+                return `
                     <div class="task-card">
                         <div class="task-header">
                             <div class="task-icon"><i class="ph ${iconClass}"></i></div>
-                            <span class="badge ${task.status.replace(' ','-')}">${task.status}</span>
+                            <span class="badge ${escapeHTML(statusClass)}">${escapeHTML(status)}</span>
                         </div>
                         <div class="task-body">
-                            <h3 class="task-title">${task.title}</h3>
+                            <h3 class="task-title">${escapeHTML(task.title)}</h3>
                         </div>
                         <div class="task-action">
-                            <button class="btn" onclick="openVisor('${task.title}', '${task.file}')">
+                            <button class="btn" data-title="${escapeHTML(task.title)}" data-file="${escapeHTML(task.file || '#')}">
                                 <i class="ph ph-eye"></i> Visualizar
                             </button>
                         </div>
                     </div>
                 `;
-                weekGrid.innerHTML += html;
             });
-            if(activityData.tasks.length === 0) {
-                weekGrid.innerHTML = `<p style="color:var(--text-muted); grid-column: span 12; text-align:center;">No hay tareas subidas en esta actividad.</p>`;
-            }
+
+            weekGrid.innerHTML = taskCards.length
+                ? taskCards.join('')
+                : '<p class="empty-week-state">Aún no hay actividades o evidencias registradas para esta semana.</p>';
+            document.querySelectorAll('.week-materials-grid button, .task-action button').forEach(button => {
+                button.addEventListener('click', () => {
+                    window.openVisor(button.dataset.title, button.dataset.file);
+                });
+            });
         } else {
-             document.getElementById('week-title').textContent = "Actividad No Registrada";
+             document.getElementById('week-label').textContent = '';
+             document.getElementById('week-title').textContent = "Semana no registrada";
+             document.getElementById('week-description').textContent = "No encontramos esta semana en el programa del curso.";
+             document.getElementById('week-materials-grid').innerHTML = '';
+             weekGrid.innerHTML = '';
         }
     }
 
@@ -222,6 +335,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 });
+
+function escapeHTML(value) {
+    const text = value === null || value === undefined ? '' : String(value);
+    return text.replace(/[&<>"']/g, character => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+    })[character]);
+}
 
 // Función central para redirigir al Visor Dedicado usando URL localmente segura (Hash)
 window.openVisor = function(title, fileUrl) {
