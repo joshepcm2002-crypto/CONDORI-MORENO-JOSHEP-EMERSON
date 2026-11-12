@@ -297,7 +297,48 @@ const CONFIG = {
           id: 11,
           title: "Listas Circulares Simples",
           description: "Recorrido circular de nodos enlazados en una sola dirección.",
-          materials: [],
+          materials: [
+            {
+              title: "Método 1 - Insertar alumno al inicio",
+              file: "Desarrollo de Aplicaciones 1/Semana11/Metodo 1 - Insertar alumno al inicio.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 2 - Insertar alumno al final",
+              file: "Desarrollo de Aplicaciones 1/Semana11/Metodo 2 - Insertar alumno al final.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 3 - Insertar alumno en posición X",
+              file: "Desarrollo de Aplicaciones 1/Semana11/Metodo 3 - Insertar alumno en posicion X.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 4 - Insertar alumno por referencia",
+              file: "Desarrollo de Aplicaciones 1/Semana11/Metodo 4 - Insertar alumno por referencia.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 5 - Eliminar alumno al inicio",
+              file: "Desarrollo de Aplicaciones 1/Semana11/Metodo 5 - Eliminar alumno al inicio.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 6 - Eliminar alumno al final",
+              file: "Desarrollo de Aplicaciones 1/Semana11/Metodo 6 - Eliminar alumno al final.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 7 - Eliminar alumno en posición X",
+              file: "Desarrollo de Aplicaciones 1/Semana11/Metodo 7 - Eliminar alumno en posicion X.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 8 - Eliminar alumno por referencia",
+              file: "Desarrollo de Aplicaciones 1/Semana11/Metodo 8 - Eliminar alumno por referencia.jpg",
+              type: "image"
+            }
+          ],
           tasks: []
         },
         {
