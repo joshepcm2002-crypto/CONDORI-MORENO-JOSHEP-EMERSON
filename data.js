@@ -208,6 +208,26 @@ const CONFIG = {
               type: "image"
             },
             {
+              title: "Método 4 - Insertar alumno por referencia",
+              file: "Desarrollo de Aplicaciones 1/Semana10/Metodo 4 - Insertar alumno por referencia.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 5 - Eliminar alumno al inicio",
+              file: "Desarrollo de Aplicaciones 1/Semana10/Metodo 5 - Eliminar alumno al inicio.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 6 - Eliminar alumno al final",
+              file: "Desarrollo de Aplicaciones 1/Semana10/Metodo 6 - Eliminar alumno al final.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 7 - Eliminar alumno en posición X",
+              file: "Desarrollo de Aplicaciones 1/Semana10/Metodo 7 - Eliminar alumno en posicion X.jpg",
+              type: "image"
+            },
+            {
               title: "Proyecto Java - Gestión de alumnos con listas enlazadas (ZIP)",
               file: "Desarrollo de Aplicaciones 1/Semana10/Proyecto Java - Gestion de alumnos con listas enlazadas.zip",
               type: "archive"
