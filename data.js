@@ -190,7 +190,7 @@ const CONFIG = {
         {
           id: 10,
           title: "Listas Simplemente Enlazadas",
-          description: "Gestión de alumnos con listas simplemente enlazadas: inserción al inicio, al final y en una posición específica.",
+          description: "Gestión de alumnos con listas simplemente enlazadas: inserción, eliminación, búsqueda, consulta y ordenamiento.",
           materials: [
             {
               title: "Método 1 - Insertar alumno al inicio",
@@ -225,6 +225,26 @@ const CONFIG = {
             {
               title: "Método 7 - Eliminar alumno en posición X",
               file: "Desarrollo de Aplicaciones 1/Semana10/Metodo 7 - Eliminar alumno en posicion X.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 8 - Eliminar alumno por referencia",
+              file: "Desarrollo de Aplicaciones 1/Semana10/Metodo 8 - Eliminar alumno por referencia.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 9 - Buscar alumno por código",
+              file: "Desarrollo de Aplicaciones 1/Semana10/Metodo 9 - Buscar alumno por codigo.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 10 - Mostrar todos los alumnos",
+              file: "Desarrollo de Aplicaciones 1/Semana10/Metodo 10 - Mostrar todos los alumnos.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 11 - Ordenar alumnos por código",
+              file: "Desarrollo de Aplicaciones 1/Semana10/Metodo 11 - Ordenar alumnos por codigo.jpg",
               type: "image"
             },
             {
