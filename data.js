@@ -190,7 +190,7 @@ const CONFIG = {
         {
           id: 10,
           title: "Listas Simplemente Enlazadas",
-          description: "Gestión de alumnos con listas simplemente enlazadas: inserción, eliminación, búsqueda, consulta y ordenamiento.",
+          description: "Operaciones de listas simplemente enlazadas para insertar, eliminar, buscar, consultar, ordenar e intercambiar alumnos.",
           materials: [
             {
               title: "Método 1 - Insertar alumno al inicio",
@@ -245,6 +245,36 @@ const CONFIG = {
             {
               title: "Método 11 - Ordenar alumnos por código",
               file: "Desarrollo de Aplicaciones 1/Semana10/Metodo 11 - Ordenar alumnos por codigo.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 12 - Ordenar alumnos por promedio",
+              file: "Desarrollo de Aplicaciones 1/Semana10/Metodo 12 - Ordenar alumnos por promedio.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 13 - Intercambiar dos alumnos",
+              file: "Desarrollo de Aplicaciones 1/Semana10/Metodo 13 - Intercambiar dos alumnos.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 14 - Mostrar cantidad de alumnos",
+              file: "Desarrollo de Aplicaciones 1/Semana10/Metodo 14 - Mostrar cantidad de alumnos.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 15 - Modificar datos de un alumno",
+              file: "Desarrollo de Aplicaciones 1/Semana10/Metodo 15 - Modificar datos de un alumno.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 16 - Verificar si la lista está vacía",
+              file: "Desarrollo de Aplicaciones 1/Semana10/Metodo 16 - Verificar si la lista esta vacia.jpg",
+              type: "image"
+            },
+            {
+              title: "Informe - Listas simplemente enlazadas en Java",
+              file: "Desarrollo de Aplicaciones 1/Semana10/Informe - Listas simplemente enlazadas en Java.jpg",
               type: "image"
             },
             {
