@@ -113,7 +113,7 @@ const CONFIG = {
         {
           id: 9,
           title: "Recursividad Anidada",
-          description: "Aplicación de recursividad anidada con la función de Ackermann en Java.",
+          description: "Aplicación de recursividad anidada con la función de Ackermann y la gestión de dependencias de tareas en Java.",
           materials: [
             {
               title: "Infografía - Función de Ackermann",
@@ -124,6 +124,16 @@ const CONFIG = {
               title: "Proyecto 01 - Función de Ackermann en Java (ZIP)",
               file: "Desarrollo de Aplicaciones 1/Semana9/Proyecto 01 - Funcion de Ackermann en Java.zip",
               type: "archive"
+            },
+            {
+              title: "Infografía - Proyecto 02: Gestión de Dependencias de Tareas",
+              file: "Desarrollo de Aplicaciones 1/Semana9/Infografia - Proyecto 02 - Gestion de Dependencias de Tareas en Java.jpg",
+              type: "image"
+            },
+            {
+              title: "Proyecto 02 - Gestión de Dependencias de Tareas en Java (ZIP)",
+              file: "Desarrollo de Aplicaciones 1/Semana9/Proyecto 02 - Gestion de Dependencias de Tareas en Java.zip",
+              type: "archive"
             }
           ],
           tasks: [
@@ -133,6 +143,13 @@ const CONFIG = {
               type: "codigo",
               status: "entregado",
               file: "Desarrollo de Aplicaciones 1/Semana9/Proyecto 01 - Funcion de Ackermann en Java.zip"
+            },
+            {
+              id: 10,
+              title: "Proyecto 02 - Gestión de Dependencias de Tareas en Java",
+              type: "codigo",
+              status: "entregado",
+              file: "Desarrollo de Aplicaciones 1/Semana9/Proyecto 02 - Gestion de Dependencias de Tareas en Java.zip"
             }
           ]
         },
