@@ -265,12 +265,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         : `<button class="btn" type="button" data-title="${escapeHTML(material.title)}" data-file="${escapeHTML(material.file)}"><i class="ph ph-eye"></i> Visualizar</button>`;
 
                     return `
-                        <article class="material-card">
+                        <article class="material-card${material.type === 'image' ? ' material-card--image' : ''}">
                             <div class="task-icon"><i class="ph ${iconClass}"></i></div>
                             <div class="material-card-copy">
                                 <span class="activity-kicker">${isArchive ? 'PROYECTO DESCARGABLE' : 'MATERIAL DE ESTUDIO'}</span>
                                 <h3>${escapeHTML(material.title)}</h3>
                             </div>
+                            ${material.type === 'image' ? `<img class="material-preview" src="${escapeHTML(material.file)}" alt="${escapeHTML(material.title)}">` : ''}
                             ${action}
                         </article>
                     `;

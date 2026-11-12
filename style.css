@@ -769,6 +769,24 @@ body.page-exiting .main {
   box-shadow: 0 16px 38px rgba(0, 0, 0, 0.15);
 }
 
+.material-card--image {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 50px minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+.material-preview {
+  grid-column: 1 / -1;
+  display: block;
+  width: 100%;
+  max-height: min(75vh, 900px);
+  object-fit: contain;
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  border-radius: 14px;
+  background: #061324;
+}
+
 .material-card-copy {
   min-width: 0;
   flex: 1;
@@ -781,6 +799,22 @@ body.page-exiting .main {
 
 .material-card .btn {
   flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .material-card--image {
+    grid-template-columns: 42px minmax(0, 1fr);
+  }
+
+  .material-card--image > .btn {
+    grid-column: 1 / -1;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .material-preview {
+    max-height: 65vh;
+  }
 }
 
 .empty-week-state {
