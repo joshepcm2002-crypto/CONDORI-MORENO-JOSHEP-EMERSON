@@ -190,9 +190,38 @@ const CONFIG = {
         {
           id: 10,
           title: "Listas Simplemente Enlazadas",
-          description: "Recorrido y administración de nodos conectados en una sola dirección.",
-          materials: [],
-          tasks: []
+          description: "Gestión de alumnos con listas simplemente enlazadas: inserción al inicio, al final y en una posición específica.",
+          materials: [
+            {
+              title: "Método 1 - Insertar alumno al inicio",
+              file: "Desarrollo de Aplicaciones 1/Semana10/Metodo 1 - Insertar alumno al inicio.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 2 - Insertar alumno al final",
+              file: "Desarrollo de Aplicaciones 1/Semana10/Metodo 2 - Insertar alumno al final.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 3 - Insertar alumno en posición X",
+              file: "Desarrollo de Aplicaciones 1/Semana10/Metodo 3 - Insertar alumno en posicion X.jpg",
+              type: "image"
+            },
+            {
+              title: "Proyecto Java - Gestión de alumnos con listas enlazadas (ZIP)",
+              file: "Desarrollo de Aplicaciones 1/Semana10/Proyecto Java - Gestion de alumnos con listas enlazadas.zip",
+              type: "archive"
+            }
+          ],
+          tasks: [
+            {
+              id: 13,
+              title: "Proyecto Java - Gestión de alumnos con listas enlazadas",
+              type: "codigo",
+              status: "entregado",
+              file: "Desarrollo de Aplicaciones 1/Semana10/Proyecto Java - Gestion de alumnos con listas enlazadas.zip"
+            }
+          ]
         },
         {
           id: 11,
