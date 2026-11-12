@@ -113,7 +113,7 @@ const CONFIG = {
         {
           id: 9,
           title: "Recursividad Anidada",
-          description: "Aplicación de recursividad anidada con la función de Ackermann y la gestión de dependencias de tareas en Java.",
+          description: "Proyectos Java que aplican recursividad anidada a la evaluación de expresiones y al cálculo de costos.",
           materials: [
             {
               title: "Infografía - Función de Ackermann",
@@ -134,6 +134,26 @@ const CONFIG = {
               title: "Proyecto 02 - Gestión de Dependencias de Tareas en Java (ZIP)",
               file: "Desarrollo de Aplicaciones 1/Semana9/Proyecto 02 - Gestion de Dependencias de Tareas en Java.zip",
               type: "archive"
+            },
+            {
+              title: "Infografía - Proyecto 03: Evaluador de Expresiones Comerciales",
+              file: "Desarrollo de Aplicaciones 1/Semana9/Infografia - Proyecto 03 - Evaluador de Expresiones Comerciales en Java.jpg",
+              type: "image"
+            },
+            {
+              title: "Proyecto 03 - Evaluador de Reglas Comerciales en Java (ZIP)",
+              file: "Desarrollo de Aplicaciones 1/Semana9/Proyecto 03 - Evaluador de Reglas Comerciales en Java.zip",
+              type: "archive"
+            },
+            {
+              title: "Infografía - Proyecto 04: Cálculo de Costos de Productos",
+              file: "Desarrollo de Aplicaciones 1/Semana9/Infografia - Proyecto 04 - Calculo de Costos de Productos en Java.jpg",
+              type: "image"
+            },
+            {
+              title: "Proyecto 04 - Cálculo de Costos de Productos en Java (ZIP)",
+              file: "Desarrollo de Aplicaciones 1/Semana9/Proyecto 04 - Calculo de Costos de Productos en Java.zip",
+              type: "archive"
             }
           ],
           tasks: [
@@ -150,6 +170,20 @@ const CONFIG = {
               type: "codigo",
               status: "entregado",
               file: "Desarrollo de Aplicaciones 1/Semana9/Proyecto 02 - Gestion de Dependencias de Tareas en Java.zip"
+            },
+            {
+              id: 11,
+              title: "Proyecto 03 - Evaluador de Reglas Comerciales en Java",
+              type: "codigo",
+              status: "entregado",
+              file: "Desarrollo de Aplicaciones 1/Semana9/Proyecto 03 - Evaluador de Reglas Comerciales en Java.zip"
+            },
+            {
+              id: 12,
+              title: "Proyecto 04 - Cálculo de Costos de Productos en Java",
+              type: "codigo",
+              status: "entregado",
+              file: "Desarrollo de Aplicaciones 1/Semana9/Proyecto 04 - Calculo de Costos de Productos en Java.zip"
             }
           ]
         },
