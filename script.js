@@ -257,18 +257,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 `${fileCount} ${fileCount === 1 ? 'archivo' : 'archivos'}`;
             
             materialsGrid.innerHTML = materials.length
-                ? materials.map(material => `
-                    <article class="material-card">
-                        <div class="task-icon"><i class="ph ph-file-pdf"></i></div>
-                        <div class="material-card-copy">
-                            <span class="activity-kicker">MATERIAL DE ESTUDIO</span>
-                            <h3>${escapeHTML(material.title)}</h3>
-                        </div>
-                        <button class="btn" type="button" data-title="${escapeHTML(material.title)}" data-file="${escapeHTML(material.file)}">
-                            <i class="ph ph-eye"></i> Visualizar
-                        </button>
-                    </article>
-                `).join('')
+                ? materials.map(material => {
+                    const isArchive = isArchiveFile(material.file);
+                    const iconClass = material.type === 'image' ? 'ph-image' : isArchive ? 'ph-file' : 'ph-file-pdf';
+                    const action = isArchive
+                        ? `<a class="btn" href="${escapeHTML(material.file)}" download><i class="ph ph-download-simple"></i> Descargar</a>`
+                        : `<button class="btn" type="button" data-title="${escapeHTML(material.title)}" data-file="${escapeHTML(material.file)}"><i class="ph ph-eye"></i> Visualizar</button>`;
+
+                    return `
+                        <article class="material-card">
+                            <div class="task-icon"><i class="ph ${iconClass}"></i></div>
+                            <div class="material-card-copy">
+                                <span class="activity-kicker">${isArchive ? 'PROYECTO DESCARGABLE' : 'MATERIAL DE ESTUDIO'}</span>
+                                <h3>${escapeHTML(material.title)}</h3>
+                            </div>
+                            ${action}
+                        </article>
+                    `;
+                }).join('')
                 : '<p class="empty-week-state">Aún no hay materiales cargados para esta semana.</p>';
 
             const taskCards = tasks.map(task => {
@@ -278,6 +284,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if(task.type==='presentacion') iconClass = 'ph-presentation-chart';
                 const status = String(task.status || 'pendiente');
                 const statusClass = status.trim().toLowerCase().replace(/\s+/g, '-');
+                const action = isArchiveFile(task.file)
+                    ? `<a class="btn" href="${escapeHTML(task.file)}" download><i class="ph ph-download-simple"></i> Descargar proyecto</a>`
+                    : `<button class="btn" type="button" data-title="${escapeHTML(task.title)}" data-file="${escapeHTML(task.file || '#')}"><i class="ph ph-eye"></i> Visualizar</button>`;
 
                 return `
                     <div class="task-card">
@@ -289,9 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <h3 class="task-title">${escapeHTML(task.title)}</h3>
                         </div>
                         <div class="task-action">
-                            <button class="btn" data-title="${escapeHTML(task.title)}" data-file="${escapeHTML(task.file || '#')}">
-                                <i class="ph ph-eye"></i> Visualizar
-                            </button>
+                            ${action}
                         </div>
                     </div>
                 `;
@@ -345,6 +352,10 @@ function escapeHTML(value) {
         '"': '&quot;',
         "'": '&#39;'
     })[character]);
+}
+
+function isArchiveFile(file) {
+    return typeof file === 'string' && /\.zip$/i.test(file);
 }
 
 // Función central para redirigir al Visor Dedicado usando URL localmente segura (Hash)

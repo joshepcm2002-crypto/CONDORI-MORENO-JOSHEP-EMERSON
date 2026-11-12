@@ -113,9 +113,28 @@ const CONFIG = {
         {
           id: 9,
           title: "Recursividad Anidada",
-          description: "Composición de llamadas recursivas para resolver problemas por etapas.",
-          materials: [],
-          tasks: []
+          description: "Aplicación de recursividad anidada con la función de Ackermann en Java.",
+          materials: [
+            {
+              title: "Infografía - Función de Ackermann",
+              file: "Desarrollo de Aplicaciones 1/Semana9/Infografia - Proyecto 01 - Funcion de Ackermann en Java.jpg",
+              type: "image"
+            },
+            {
+              title: "Proyecto 01 - Función de Ackermann en Java (ZIP)",
+              file: "Desarrollo de Aplicaciones 1/Semana9/Proyecto 01 - Funcion de Ackermann en Java.zip",
+              type: "archive"
+            }
+          ],
+          tasks: [
+            {
+              id: 9,
+              title: "Proyecto 01 - Función de Ackermann en Java",
+              type: "codigo",
+              status: "entregado",
+              file: "Desarrollo de Aplicaciones 1/Semana9/Proyecto 01 - Funcion de Ackermann en Java.zip"
+            }
+          ]
         },
         {
           id: 10,
