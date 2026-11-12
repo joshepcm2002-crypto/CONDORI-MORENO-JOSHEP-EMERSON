@@ -1054,6 +1054,205 @@ body.page-exiting .main {
   transform: scale(1.1);
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.course-chat-window {
+  position: fixed;
+  z-index: 1101;
+  right: 1.5rem;
+  bottom: 6.25rem;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto auto auto;
+  width: min(390px, calc(100vw - 2rem));
+  height: min(560px, calc(100dvh - 8rem));
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.course-chat-window[hidden] {
+  display: none;
+}
+
+.course-chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(7, 132, 196, 0.24), rgba(56, 189, 248, 0.08));
+}
+
+.course-chat-header > div {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.course-chat-header strong {
+  font-size: 1rem;
+}
+
+.course-chat-header span,
+.course-chat-note {
+  color: var(--text-muted);
+  font-size: 0.76rem;
+}
+
+.course-chat-close,
+.course-chat-form button,
+.course-chat-launcher {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.course-chat-close {
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  font-size: 1.15rem;
+}
+
+.course-chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  overflow-y: auto;
+  padding: 1rem;
+  overscroll-behavior: contain;
+}
+
+.course-chat-message {
+  max-width: 92%;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  background: var(--surface-hover);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.course-chat-message--user {
+  align-self: flex-end;
+  border-color: rgba(56, 189, 248, 0.4);
+  background: rgba(7, 132, 196, 0.28);
+}
+
+.course-chat-message--assistant {
+  align-self: flex-start;
+}
+
+.course-chat-suggestions {
+  display: flex;
+  gap: 0.45rem;
+  overflow-x: auto;
+  padding: 0 0.85rem 0.75rem;
+}
+
+.course-chat-suggestions button {
+  flex: 0 0 auto;
+  padding: 0.4rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.course-chat-suggestions button:hover,
+.course-chat-close:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.course-chat-form {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.course-chat-form input {
+  min-width: 0;
+  flex: 1;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.9rem;
+}
+
+.course-chat-form input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.14);
+}
+
+.course-chat-form button {
+  flex: 0 0 44px;
+  width: 44px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--primary);
+  color: white;
+  font-size: 1.2rem;
+}
+
+.course-chat-form button:hover,
+.course-chat-launcher:hover {
+  filter: brightness(1.12);
+}
+
+.course-chat-note {
+  padding: 0 0.85rem 0.7rem;
+  text-align: center;
+}
+
+.course-chat-launcher {
+  position: fixed;
+  z-index: 1100;
+  right: 5.75rem;
+  bottom: 2rem;
+  width: 50px;
+  height: 50px;
+  border: 1px solid rgba(56, 189, 248, 0.55);
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 8px 24px rgba(7, 132, 196, 0.35);
+  font-size: 1.5rem;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.course-chat-launcher:hover {
+  transform: translateY(-2px);
+}
+
 footer {
   text-align: center;
   padding: 3rem;
@@ -1092,6 +1291,17 @@ footer {
     width: 90%;
     justify-content: space-between;
     padding: 0.5rem;
+  }
+
+  .course-chat-window {
+    right: 0.75rem;
+    bottom: 5.25rem;
+    height: min(560px, calc(100dvh - 6.5rem));
+  }
+
+  .course-chat-launcher {
+    right: 4.65rem;
+    bottom: 1rem;
   }
 
   .dock-link span {
