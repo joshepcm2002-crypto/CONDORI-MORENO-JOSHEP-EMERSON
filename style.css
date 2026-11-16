@@ -801,13 +801,23 @@ body.page-exiting .main {
   flex-shrink: 0;
 }
 
+.material-card--image > .btn {
+  grid-column: 1 / -1;
+  justify-self: end;
+  min-width: 150px;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
 @media (max-width: 480px) {
   .material-card--image {
     grid-template-columns: 42px minmax(0, 1fr);
   }
 
   .material-card--image > .btn {
-    grid-column: 1 / -1;
+    justify-self: stretch;
     width: 100%;
     justify-content: center;
   }
