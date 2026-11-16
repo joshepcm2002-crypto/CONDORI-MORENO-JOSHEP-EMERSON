@@ -337,9 +337,62 @@ const CONFIG = {
               title: "Método 8 - Eliminar alumno por referencia",
               file: "Desarrollo de Aplicaciones 1/Semana11/Metodo 8 - Eliminar alumno por referencia.jpg",
               type: "image"
+            },
+            {
+              title: "Método 9 - Buscar alumno por código",
+              file: "Desarrollo de Aplicaciones 1/Semana11/Metodo 9 - Buscar alumno por codigo.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 10 - Mostrar todos los alumnos",
+              file: "Desarrollo de Aplicaciones 1/Semana11/Metodo 10 - Mostrar todos los alumnos.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 11 - Ordenar alumnos por código",
+              file: "Desarrollo de Aplicaciones 1/Semana11/Metodo 11 - Ordenar alumnos por codigo.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 12 - Intercambiar dos alumnos",
+              file: "Desarrollo de Aplicaciones 1/Semana11/Metodo 12 - Intercambiar dos alumnos.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 13 - Contar nodos",
+              file: "Desarrollo de Aplicaciones 1/Semana11/Metodo 13 - Contar nodos.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 14 - Modificar datos de un alumno",
+              file: "Desarrollo de Aplicaciones 1/Semana11/Metodo 14 - Modificar datos de un alumno.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 15 - Menú principal",
+              file: "Desarrollo de Aplicaciones 1/Semana11/Metodo 15 - Menu principal.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 16 - Verificar si la lista está vacía",
+              file: "Desarrollo de Aplicaciones 1/Semana11/Metodo 16 - Verificar si la lista esta vacia.jpg",
+              type: "image"
+            },
+            {
+              title: "Informe - Proyecto 01: Gestión de alumnos",
+              file: "Desarrollo de Aplicaciones 1/Semana11/Informe - Proyecto 01 - Gestion de alumnos.jpg",
+              type: "image"
             }
           ],
-          tasks: []
+          tasks: [
+            {
+              id: 14,
+              title: "Proyecto Java - Gestión de alumnos con listas circulares",
+              type: "codigo",
+              status: "entregado",
+              file: "Desarrollo de Aplicaciones 1/Semana11/Proyecto Java - Gestion de alumnos con listas circulares.zip"
+            }
+          ]
         },
         {
           id: 12,
