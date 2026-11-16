@@ -397,9 +397,108 @@ const CONFIG = {
         {
           id: 12,
           title: "Listas Doblemente Enlazadas",
-          description: "Nodos conectados en ambas direcciones para facilitar su recorrido.",
-          materials: [],
-          tasks: []
+          description: "Nodos conectados en ambas direcciones para facilitar su recorrido y la manipulación de datos en ambos sentidos.",
+          materials: [
+            {
+              title: "Método 01 - Insertar al inicio",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_1_Metodo 01_insertarInicio.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 02 - Insertar al final",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_1_Metodo 02_insertarFinal.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 03 - Obtener nodo",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_1_Metodo 03_obtenerNodo.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 04 - Insertar en posición",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_1_Metodo 04_insertarPosicion.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 05 - Insertar después de",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_1_Metodo 05_insertarDespuesDe.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 06 - Eliminar inicio",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_1_Metodo 06_EliminarInicio.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 07 - Eliminar final",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_1_Metodo 07_EliminarFinal.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 08 - Eliminar posición",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_1_Metodo 08_EliminarPosicion.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 09 - Insertar alumnos por promedio",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_1_Metodo 09_Insertar_Alumnos_Proomedio.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 10 - Buscar por código",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_1_Metodo 10_Buscar_por_Codigo.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 11 - Buscar posición",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_1_Metodo 11_Buscar_Posicion.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 12 - Recorrer adelante",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_1_Metodo 12_RecorrerAdelante.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 13 - Recorrer atrás",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_1_Metodo 13_Recorrer_Atras.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 14 - Ordenar por promedio",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_1_Metodo 14_Ordenar_Por_Promedio.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 15 - Intercambiar",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_1_Metodo 15_Intercambiar.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 16 - Modificar alumno",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_1_Metodo 16_Modificar_Alumno.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 17 - Obtener tamaño",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_1_Metodo 17_Obtener_Tamaño.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 18 - Está vacía",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_1_Metodo 18_Esta_Vacia.jpg",
+              type: "image"
+            }
+          ],
+          tasks: [
+            {
+              id: 33,
+              title: "Sesion12 - Listas Doblemente Enlazadas",
+              type: "codigo",
+              status: "entregado",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Sesion12.zip"
+            }
+          ]
         }
       ]
     },
