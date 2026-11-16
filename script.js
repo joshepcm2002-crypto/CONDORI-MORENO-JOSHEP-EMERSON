@@ -430,7 +430,7 @@ window.openVisor = function(title, fileUrl) {
     document.body.classList.remove('page-loaded');
     document.body.classList.add('page-exiting');
     setTimeout(() => {
-        window.location.href = `visor.html#title=${paramTitle}&file=${paramFile}`;
+        window.location.href = `visor.html?v=20261116-zoom-fix#title=${paramTitle}&file=${paramFile}`;
     }, 350);
 }
 
