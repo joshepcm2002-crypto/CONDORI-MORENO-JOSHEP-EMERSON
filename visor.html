@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio | Visor Interactivo</title>
-    <link rel="stylesheet" href="style.css?v=20261112-week11-refresh">
+    <link rel="stylesheet" href="style.css?v=20261116-image-zoom">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <script src="data.js?v=20261112-week11-refresh"></script>
 </head>
@@ -26,6 +26,21 @@
 
         <div class="visor-card">
             <iframe id="visorFrame" class="visor-frame" src=""></iframe>
+            <div id="visorImageViewer" class="visor-image-viewer" style="display:none;">
+                <div class="visor-image-controls" aria-label="Controles de zoom de imagen">
+                    <button class="visor-image-btn" id="visorZoomOut" type="button" aria-label="Reducir imagen" title="Reducir">
+                        <i class="ph ph-minus"></i>
+                    </button>
+                    <output id="visorZoomLevel" class="visor-zoom-level" aria-live="polite">100%</output>
+                    <button class="visor-image-btn" id="visorZoomIn" type="button" aria-label="Agrandar imagen" title="Agrandar">
+                        <i class="ph ph-plus"></i>
+                    </button>
+                    <button class="visor-image-btn visor-image-reset" id="visorZoomReset" type="button">Ajustar</button>
+                </div>
+                <div id="visorImageStage" class="visor-image-stage">
+                    <img id="visorImage" alt="">
+                </div>
+            </div>
             <div id="visorError" class="visor-error" style="display:none;">
                 <i class="ph ph-warning-circle" style="font-size:4rem; margin-bottom:1rem; color:var(--warning)"></i>
                 <p style="font-size:1.1rem; max-width:400px; line-height:1.5;">El archivo para esta evidencia aún no está listo o es estrictamente local.</p>
@@ -34,7 +49,7 @@
     </div>
 
     <button class="theme-toggle" id="themeToggle"><i class="ph ph-sun"></i></button>
-    <script src="script.js?v=20261112-week11-refresh"></script>
+    <script src="script.js?v=20261116-image-zoom"></script>
     <script src="chatbot.js?v=20261112-week11-refresh"></script>
 </body>
 </html>

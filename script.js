@@ -332,13 +332,77 @@ document.addEventListener('DOMContentLoaded', () => {
         document.title = `Visor | ${title}`;
 
         
+        const visorFrame = document.getElementById('visorFrame');
+        const visorImageViewer = document.getElementById('visorImageViewer');
+        const visorImage = document.getElementById('visorImage');
+        const visorError = document.getElementById('visorError');
+
         if(!file || file === '#' || file==='null') {
-            document.getElementById('visorFrame').style.display = 'none';
+            visorFrame.style.display = 'none';
             document.getElementById('visorError').style.display = 'flex';
             document.getElementById('visorDownloadBtn').style.display = 'none';
         } else {
-            document.getElementById('visorFrame').src = file;
             document.getElementById('visorDownloadBtn').style.display = 'inline-flex';
+            const isImage = /\.(avif|bmp|gif|jpe?g|png|svg|webp)$/i.test(
+                new URL(file, window.location.href).pathname
+            );
+
+            if(isImage) {
+                visorFrame.style.display = 'none';
+                visorImageViewer.style.display = 'flex';
+                visorImage.alt = title;
+
+                const stage = document.getElementById('visorImageStage');
+                const zoomLevel = document.getElementById('visorZoomLevel');
+                const zoomOut = document.getElementById('visorZoomOut');
+                const zoomIn = document.getElementById('visorZoomIn');
+                let fitWidth = 0;
+                let fitHeight = 0;
+                let zoom = 1;
+
+                const updateZoom = () => {
+                    visorImage.style.width = `${fitWidth * zoom}px`;
+                    visorImage.style.height = `${fitHeight * zoom}px`;
+                    zoomLevel.textContent = `${Math.round(zoom * 100)}%`;
+                    zoomOut.disabled = zoom <= 0.25;
+                    zoomIn.disabled = zoom >= 4;
+                };
+
+                const fitImage = () => {
+                    const fit = Math.min(
+                        stage.clientWidth / visorImage.naturalWidth,
+                        stage.clientHeight / visorImage.naturalHeight,
+                        1
+                    );
+                    fitWidth = visorImage.naturalWidth * fit;
+                    fitHeight = visorImage.naturalHeight * fit;
+                    updateZoom();
+                };
+
+                visorImage.addEventListener('load', fitImage, { once: true });
+                visorImage.addEventListener('error', () => {
+                    visorImageViewer.style.display = 'none';
+                    visorError.style.display = 'flex';
+                }, { once: true });
+                zoomOut.addEventListener('click', () => {
+                    zoom = Math.max(0.25, zoom - 0.25);
+                    updateZoom();
+                });
+                zoomIn.addEventListener('click', () => {
+                    zoom = Math.min(4, zoom + 0.25);
+                    updateZoom();
+                });
+                document.getElementById('visorZoomReset').addEventListener('click', () => {
+                    zoom = 1;
+                    updateZoom();
+                });
+                window.addEventListener('resize', () => {
+                    if(visorImage.complete && visorImage.naturalWidth) fitImage();
+                });
+                visorImage.src = file;
+            } else {
+                visorFrame.src = file;
+            }
         }
 
     }
