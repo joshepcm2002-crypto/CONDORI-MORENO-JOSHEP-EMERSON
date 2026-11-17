@@ -488,12 +488,62 @@ const CONFIG = {
               title: "Método 18 - Está vacía",
               file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_1_Metodo 18_Esta_Vacia.jpg",
               type: "image"
+            },
+            {
+              title: "Método 01 - Eliminar por código",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_02_Metodo 01_Eliminar_por_Codigo.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 02 - Buscar por código",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_02_Metodo 02_Buscar_por_Codigo.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 03 - Buscar posición",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_02_Metodo 03_Buscar_Posicion.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 04 - Recorrer adelante",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_02_Metodo 04_Recorrer_Adelante.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 05 - Recorrer atrás",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_02_Metodo 05_Recorrer_Atras.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 06 - Ordenar por promedio",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_02_Metodo 06_Ordenar_por_Promedio.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 07 - Intercambiar",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_02_Metodo 07_Intercambiar.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 08 - Modificar alumno",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_02_Metodo 08_Modificar_Alumno.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 09 - Obtener tamaño",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_02_Metodo 09_Obtener_Tamaño.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 10 - Está vacía",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto_02_Metodo 10_Esta_Vacia.jpg",
+              type: "image"
             }
           ],
           tasks: [
             {
               id: 33,
-              title: "Sesion12 - Listas Doblemente Enlazadas",
+              title: "Proyecto 02 - Listas Doblemente Enlazadas",
               type: "codigo",
               status: "entregado",
               file: "Desarrollo de Aplicaciones 1/Semana12/Sesion12.zip"
