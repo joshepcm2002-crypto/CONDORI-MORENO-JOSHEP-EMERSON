@@ -542,6 +542,13 @@ const CONFIG = {
           ],
           tasks: [
             {
+              id: 34,
+              title: "Proyecto 01 - Listas Doblemente Enlazadas",
+              type: "codigo",
+              status: "entregado",
+              file: "Desarrollo de Aplicaciones 1/Semana12/Proyecto 01_Semana_12.zip"
+            },
+            {
               id: 33,
               title: "Proyecto 02 - Listas Doblemente Enlazadas",
               type: "codigo",
