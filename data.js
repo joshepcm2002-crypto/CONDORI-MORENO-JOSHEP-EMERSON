@@ -567,10 +567,84 @@ const CONFIG = {
       activities: [
         {
           id: 13,
-          title: "Árboles",
-          description: "Representación jerárquica de datos mediante nodos y relaciones.",
-          materials: [],
-          tasks: []
+          title: "Árboles Binarios de Búsqueda",
+          description: "Implementación de un árbol binario de búsqueda para gestionar, consultar y recorrer productos.",
+          materials: [
+            {
+              title: "Método 1 - Insertar producto",
+              file: "Desarrollo de Aplicaciones 1/Semana13/Proyecto 01_Metodo 1_InsertarProducto.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 2 - Buscar producto",
+              file: "Desarrollo de Aplicaciones 1/Semana13/Proyecto 01_Metodo 2_BuscarProducto.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 3 - Actualizar producto",
+              file: "Desarrollo de Aplicaciones 1/Semana13/Proyecto 01_Metodo 3_ActualizarProducto.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 4 - Eliminar producto",
+              file: "Desarrollo de Aplicaciones 1/Semana13/Proyecto 01_Metodo 4_EliminarProducto.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 5 - Recorrido inorden",
+              file: "Desarrollo de Aplicaciones 1/Semana13/Proyecto 01_Metodo 5_Recorrido.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 6 - Recorrido preorden",
+              file: "Desarrollo de Aplicaciones 1/Semana13/Proyecto 01_Metodo 6_PreOrden.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 7 - Recorrido postorden",
+              file: "Desarrollo de Aplicaciones 1/Semana13/Proyecto 01_Metodo 7_PostOrden.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 8 - Código menor y mayor",
+              file: "Desarrollo de Aplicaciones 1/Semana13/Proyecto 01_Metodo 8_CodigoMenoryMayor.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 9 - Reporte ascendente",
+              file: "Desarrollo de Aplicaciones 1/Semana13/Proyecto 01_Metodo 9_ReporteAscendente.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 10 - Identificar stock bajo",
+              file: "Desarrollo de Aplicaciones 1/Semana13/Proyecto 01_Metodo 10_IdentificarStock.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 11 - Calcular valor total",
+              file: "Desarrollo de Aplicaciones 1/Semana13/Proyecto 01_Metodo 11_CalcularValorTotal.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 12 - Estructura visual",
+              file: "Desarrollo de Aplicaciones 1/Semana13/Proyecto 01_Metodo 12_EstructuraVisual.jpg",
+              type: "image"
+            },
+            {
+              title: "Método 13 - Cargar datos de prueba",
+              file: "Desarrollo de Aplicaciones 1/Semana13/Proyecto 01_Metodo 13_CargarDatosdePrueba.jpg",
+              type: "image"
+            }
+          ],
+          tasks: [
+            {
+              id: 35,
+              title: "Proyecto 01 - Gestión de productos con árbol binario",
+              type: "codigo",
+              status: "entregado",
+              file: "Desarrollo de Aplicaciones 1/Semana13/Proyecto 01 - Arbol Binario de Busqueda.zip"
+            }
+          ]
         },
         {
           id: 14,
